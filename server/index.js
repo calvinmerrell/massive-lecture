@@ -12,17 +12,18 @@ connectionString: CONNECTION_STRING,
 ssl: {rejectUnauthorized: false}
 })
   .then(dbInstance => {
+    console.log("db ready")
     app.set("db", dbInstance);
   })
   .catch(err => console.log(err));
 
 app.use(express.json());
 
-app.post('/api/products', products_controller.create);
-app.get('/api/products', products_controller.getAll);
-app.get('/api/products/:id', products_controller.getOne);
-app.put('/api/products/:id', products_controller.update);
-app.delete('/api/products/:id', products_controller.delete);
+app.post('/api/products', productsController.create);
+app.get('/api/products', productsController.getAll);
+app.get('/api/products/:id', productsController.getOne);
+app.put('/api/products/:id', productsController.update);
+app.delete('/api/products/:id', productsController.delete);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}.`);
