@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
-const products_controller = require("./products_controller");
+const productsController = require("./productsController");
 
 const app = express();
 
